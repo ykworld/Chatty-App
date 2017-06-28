@@ -8,16 +8,7 @@ class App extends Component {
     this.socket = new WebSocket("ws://localhost:3001");
     this.state = {
       currentUser: {name: "Bob"}, // optional. if currentUser is not defined, it means the user is Anonymous
-      messages: [
-        {
-          username: "Bob",
-          content: "Has anyone seen my marbles?",
-        },
-        {
-          username: "Anonymous",
-          content: "No, I think you lost them. You lost your marbles Bob. You lost them for good."
-        }
-      ]
+      messages: []
     };
   }
 
@@ -37,6 +28,11 @@ class App extends Component {
     this.socket.onopen = function (event) {
       console.log("Connected to server");
     };
+
+    this.socket.onmessage = (event) => {
+      console.log(event);
+      // code to handle incoming message
+    }
 
     // setTimeout(() => {
     //   console.log("Simulating incoming message");
