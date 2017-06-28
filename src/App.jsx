@@ -20,6 +20,12 @@ class App extends Component {
       this.socket.send(JSON.stringify(newMessage));
     }
   }
+  
+  _handleEditUserName = (e) => {
+    if (e.key === 'Enter') {
+      this.setState({currentUser: {name: e.target.value}});
+    }
+  }
 
   componentDidMount() {
     console.log("componentDidMount <App />");
@@ -52,9 +58,10 @@ class App extends Component {
           <a href="/" className="navbar-brand">Chatty</a>
         </nav>
         <MessageList messages={this.state.messages} />
-        <ChatBar handlePress={this._handlePress} currentUser={this.state.currentUser} />
+        <ChatBar handlePress={this._handlePress} currentUser={this.state.currentUser} handleEditUserName={this._handleEditUserName} />
       </div>
     );
   }
 }
+
 export default App;
