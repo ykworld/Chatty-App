@@ -12,6 +12,10 @@ class App extends Component {
     };
   }
 
+  _handleChange = (e) => {
+    this.setState({currentUser: {name: e.target.value}});
+  }
+
   _handlePress = (e) => {
     if (e.key === 'Enter') {
       const newMessage = {username: this.state.currentUser.name, content: e.target.value};
@@ -58,7 +62,7 @@ class App extends Component {
           <a href="/" className="navbar-brand">Chatty</a>
         </nav>
         <MessageList messages={this.state.messages} />
-        <ChatBar handlePress={this._handlePress} currentUser={this.state.currentUser} handleEditUserName={this._handleEditUserName} />
+        <ChatBar handlePress={this._handlePress} username={this.state.currentUser.name} handleChange={this._handleChange} handleEditUserName={this._handleEditUserName} />
       </div>
     );
   }
