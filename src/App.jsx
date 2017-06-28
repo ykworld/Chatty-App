@@ -15,9 +15,8 @@ class App extends Component {
   _handlePress = (e) => {
     if (e.key === 'Enter') {
       const newMessage = {username: this.state.currentUser.name, content: e.target.value};
-      const messages = this.state.messages.concat(newMessage)
-      this.setState({messages: messages})
-
+      // const messages = this.state.messages.concat(newMessage)
+      // this.setState({messages: messages})
       this.socket.send(JSON.stringify(newMessage));
     }
   }
@@ -30,8 +29,8 @@ class App extends Component {
     };
 
     this.socket.onmessage = (event) => {
-      console.log(event);
-      // code to handle incoming message
+      this.state.messages.push(JSON.parse(event.data));
+      this.setState({messages: this.state.messages});
     }
 
     // setTimeout(() => {
