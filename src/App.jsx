@@ -18,10 +18,9 @@ class App extends Component {
         }
       ]
     };
-    this._handlePress = this._handlePress.bind(this);
   }
 
-  _handlePress(e) {
+  _handlePress = (e) => {
     if (e.key === 'Enter') {
       const newMessage = {username: this.state.currentUser.name, content: e.target.value};
       const messages = this.state.messages.concat(newMessage)
