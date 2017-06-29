@@ -11,12 +11,16 @@ class App extends Component {
       messages: [],
       count: 0
     };
+    this.color = "";
   }
 
   _handlePress = (e) => {
     if (e.key === 'Enter') {
-      const newMessage = {type: "postMessage", username: this.state.currentUser.name, content: e.target.value};
+      const newMessage = {type: "postMessage", color: this.color, username: this.state.currentUser.name, content: e.target.value};
       this.sendMessage(newMessage);
+      if (this.isNewUser) {
+        this.isNewUser = false;
+      }
     }
   }
   
@@ -24,7 +28,7 @@ class App extends Component {
     if (e.key === 'Enter') {
       const username = e.target.value;
       const content = this.state.currentUser.name + " has changed their name to " + username;
-      const message = {type: "postNotification", content: content}
+      const message = {type: "postNotification", content: content, id: this.id}
       this.setState({currentUser: {name: username}});
       this.sendMessage(message);
     }
@@ -44,6 +48,7 @@ class App extends Component {
     this.socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       console.log(data);
+      this.id = data.id;
       switch(data.type) {
         case "incomingMessage":
           this.state.messages.push(data);
@@ -56,10 +61,12 @@ class App extends Component {
         case "incomingCount":
           this.setState({count: data.count});
           break;
+        case "incomingColor":
+          this.color = data.color;
+          break;
         default:
           throw new Error("Unknown event type " + data.type);
       }
-      
     }
   }
 
