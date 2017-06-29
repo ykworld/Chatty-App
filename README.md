@@ -1,7 +1,9 @@
-React Boilerplate
+Chatty App
 =====================
 
-A minimal and light dev environment for ReactJS.
+Many of the web applications that you use today have real-time functionality where the user does not have to reload the page in order to see updates. Major examples of these include Slack, Twitter and Facebook.
+
+Chatty APP will allow users to communicate with each other without having to register accounts. It use React, a popular front-end library created and used heavily by Facebook as well as modern tools for Node including Webpack and Babel.
 
 ### Final Product
 !["screenshot of URLs page"](https://github.com/ykworld/Chatty-App/blob/master/docs/chatty.png)
