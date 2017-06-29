@@ -3,6 +3,9 @@ React Boilerplate
 
 A minimal and light dev environment for ReactJS.
 
+### Final Product
+!["screenshot of URLs page"](https://github.com/ykworld/Chatty-App/docs/chatty.png)
+
 ### Usage
 
 Clone the boilerplate and create your own git repo.
@@ -41,5 +44,8 @@ npm run lint
 
 * React
 * Webpack
+* node-sass
+* eslint
+* css-loader
 * [babel-loader](https://github.com/babel/babel-loader)
 * [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
