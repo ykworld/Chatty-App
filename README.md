@@ -4,7 +4,7 @@ React Boilerplate
 A minimal and light dev environment for ReactJS.
 
 ### Final Product
-!["screenshot of URLs page"](https://github.com/ykworld/Chatty-App/docs/chatty.png)
+!["screenshot of URLs page"](https://github.com/ykworld/Chatty-App/blob/master/docs/chatty.png)
 
 ### Usage
 
