@@ -14,6 +14,8 @@ class App extends Component {
     this.color = "";
   }
 
+  // keypress event from chatbar
+  // called when user press message input field
   _handlePress = (e) => {
     if (e.key === 'Enter') {
       const newMessage = {type: "postMessage", color: this.color, username: this.state.currentUser.name, content: e.target.value};
@@ -24,6 +26,8 @@ class App extends Component {
     }
   }
   
+  // keypress event from chatbar
+  // called when user change the username
   _handleEditUserName = (e) => {
     if (e.key === 'Enter') {
       const username = e.target.value;
@@ -38,6 +42,7 @@ class App extends Component {
     this.socket.send(JSON.stringify(msg));
   }
 
+  // connect to websocket after rendering
   componentDidMount() {
     console.log("componentDidMount <App />");
 
